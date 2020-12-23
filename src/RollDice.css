@@ -1,0 +1,23 @@
+.Dice-Container{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 60px;
+
+}
+
+.Dice-Btn{
+    background-color: rgb(42, 180, 146);
+    color: white;
+    margin-top: 50px;
+    height: 50px;
+    width: 100px;
+    border: .5px solid black;
+    outline: none;
+    border-radius: 50px;
+}
+
+.Dice-Btn:hover{
+    cursor: pointer;
+}
