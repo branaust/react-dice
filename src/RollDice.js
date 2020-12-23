@@ -18,19 +18,25 @@ class RollDice extends Component {
         let rand2 = Math.floor(Math.random() * 6)
         let face1 = this.props.sides[rand1]
         let face2 = this.props.sides[rand2]
-        this.setState({ die1: face1 })
-        this.setState({ die2: face2 })
+        this.setState({ die1: face1, die2: face2, rolling: true })
+
+        // Wait one second, then set rolling to false
+        setTimeout(() => {
+            this.setState({ rolling: false });
+        }, 1000)
     }
 
     render() {
         return (
             <div>
                 <div className="Dice-Container">
-                    <Dice face={this.state.die1} />
-                    <Dice face={this.state.die2} />
+                    <Dice face={this.state.die1} shake={this.state.rolling} />
+                    <Dice face={this.state.die2} shake={this.state.rolling} />
                 </div>
 
-                <button onClick={this.roll} className="Dice-Btn">Roll Dice!</button>
+                <button onClick={this.roll} disabled={this.state.rolling} className="Dice-Btn">
+                    {this.state.rolling ? 'Rolling...' : 'Roll Dice'}
+                </button>
             </div >
 
         )
